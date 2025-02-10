@@ -1,6 +1,6 @@
 <template>
   <div class="test-form">
-    <h2>Contact Form</h2>
+    <h2 data-testid="form-title">Contact Form</h2>
     <form @submit.prevent="handleSubmit" data-testid="contact-form">
       <div class="form-group">
         <label for="name">Name:</label>
