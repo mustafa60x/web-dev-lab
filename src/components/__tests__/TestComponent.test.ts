@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import Test from '../TestComponent.vue'
+import Test from '../Test/TestComponent.vue'
 
 describe('TestComponent', () => {
   it('renders properly', () => {
