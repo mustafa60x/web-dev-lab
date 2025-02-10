@@ -10,16 +10,13 @@ jobs:
       - name: Repo'yu Kopyala
         uses: actions/checkout@v3
 
-      - name: Node.js Kurulumu
+      - name: 📦 Node.js Kurulumu
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
 
-      - name: 🚀 pnpm Kurulumu
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8 # Güncel pnpm sürümü
+      - name: 🚀 pnpm Manuel Kurulumu (Alternatif Çözüm)
+        run: npm install -g pnpm # Hata alıyorsan bunu kullan
 
       - name: 📂 Bağımlılıkları Yükle
         run: pnpm install
