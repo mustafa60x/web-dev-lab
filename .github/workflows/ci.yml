@@ -14,12 +14,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'pnpm'
 
-      - name: Bağımlılıkları Yükle
+      - name: 🚀 pnpm Kurulumu
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # Güncel pnpm sürümü
+
+      - name: 📂 Bağımlılıkları Yükle
         run: pnpm install
 
-      - name: Unit Testleri Çalıştır
-        run: pnpm run test:unit
+      - name: 🧪 Unit Testleri Çalıştır (Vitest)
+        run: pnpm run test
 
-      - name: Playwright Testleri Çalıştır
+      - name: 🏁 Playwright Tarayıcıları Kur
+        run: npx playwright install --with-deps
+
+      - name: 🌍 E2E Testleri Çalıştır (Playwright)
         run: pnpm run test:e2e
