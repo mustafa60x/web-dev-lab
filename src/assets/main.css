@@ -1,35 +1,190 @@
-@import './base.css';
+@import 'tailwindcss';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@theme {
+  --font-sans: 'Roboto', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --color-primary: #0284c7;
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #082f49;
+
+  --color-secondary: #7c3aed;
+  --color-secondary-50: #f5f3ff;
+  --color-secondary-100: #ede9fe;
+  --color-secondary-200: #ddd6fe;
+  --color-secondary-300: #c4b5fd;
+  --color-secondary-400: #a78bfa;
+  --color-secondary-500: #8b5cf6;
+  --color-secondary-600: #7c3aed;
+  --color-secondary-700: #6d28d9;
+  --color-secondary-800: #5b21b6;
+  --color-secondary-900: #4c1d95;
+  --color-secondary-950: #2e1065;
+
+  --color-success: #22c55e;
+  --color-success-50: #dcfce7;
+  --color-success-100: #bbf7d0;
+  --color-success-200: #86efac;
+  --color-success-300: #4ade80;
+  --color-success-400: #22d3ee;
+  --color-success-500: #06b6d4;
+  --color-success-600: #0891b2;
+  --color-success-700: #0e7490;
+  --color-success-800: #155e75;
+  --color-success-900: #164e63;
+  --color-success-950: #083344;
+
+  --color-warning: #f59e0b;
+  --color-warning-50: #fdf2c7;
+  --color-warning-100: #fce9a2;
+  --color-warning-200: #fadb74;
+  --color-warning-300: #f7c94e;
+  --color-warning-400: #f5b021;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #93350d;
+  --color-warning-900: #7a3a1b;
+  --color-warning-950: #573913;
+
+  --color-error: #ef4444;
+  --color-error-50: #fdf2f2;
+  --color-error-100: #fbe3e3;
+  --color-error-200: #fcd5d5;
+  --color-error-300: #fba9a9;
+  --color-error-400: #f97575;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  --color-error-950: #5b1313;
+
+  --color-info: #3b82f6;
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+  --color-info-950: #172554;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 3rem;
+  --radius-circle: 50%;
+  --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  --z-index-0: 0;
+  --z-index-10: 10;
+  --z-index-20: 20;
+  --z-index-30: 30;
+  --z-index-40: 40;
+  --z-index-50: 50;
+
+  --container-max-width: 100%;
+  --container-padding: 1rem;
+
+  --container-sm-max-width: 640px;
+  --container-sm-padding: 1.5rem;
+
+  --container-md-max-width: 768px;
+  --container-md-padding: 2rem;
+
+  --container-lg-max-width: 1024px;
+  --container-lg-padding: 2.5rem;
+
+  --container-xl-max-width: 1280px;
+  --container-xl-padding: 3rem;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+  @variant sm {
+    max-width: var(--container-sm-max-width);
+    padding-inline: var(--container-sm-padding);
   }
-}
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
+  @variant md {
+    max-width: var(--container-md-max-width);
+    padding-inline: var(--container-md-padding);
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  @variant lg {
+    max-width: var(--container-lg-max-width);
+    padding-inline: var(--container-lg-padding);
+  }
+
+  @variant xl {
+    max-width: var(--container-xl-max-width);
+    padding-inline: var(--container-xl-padding);
   }
 }

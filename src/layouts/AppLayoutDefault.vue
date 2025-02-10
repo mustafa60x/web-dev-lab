@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import AppFooter from '@/components/AppFooter.vue'
 
 defineOptions({
   name: 'AppLayoutDefault',
@@ -7,9 +8,9 @@ defineOptions({
 </script>
 
 <template>
-  <div class="layout-default">
-    <header>
-      <nav>
+  <div class="min-h-screen bg-gray-100 text-gray-900 flex flex-col">
+    <header class="bg-white shadow h-16 flex items-center">
+      <nav class="container mx-auto">
         <RouterLink to="/" class="logo-link">
           <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="40" height="40" />
           <span>Web Dev Lab</span>
@@ -25,14 +26,17 @@ defineOptions({
       </nav>
     </header>
 
-    <main>
+    <main class="container mx-auto p-4 flex-grow">
       <slot></slot>
     </main>
+
+    <!-- Footer -->
+    <AppFooter />
   </div>
 </template>
 
 <style scoped>
-.layout-default {
+/* .layout-default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,7 +49,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-}
+} */
 
 nav {
   display: flex;
@@ -78,28 +82,30 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--color-text);
+  color: black;
   padding: 0.5rem 1rem;
   border-radius: 4px;
+  border-radius: 1rem; /* Köşe yuvarlama */
+
   transition: background-color 0.2s;
 }
 
 .nav-links a:hover {
-  background-color: var(--color-background-mute);
+  background-color: #f2f2f2;
 }
 
 .nav-links a.router-link-active {
-  background-color: var(--color-background-mute);
-  font-weight: 500;
+  background-color: #f2f2f2;
+  color: blueviolet;
 }
 
-main {
+/* main {
   flex: 1;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-}
+} */
 
 @media (max-width: 768px) {
   nav {
