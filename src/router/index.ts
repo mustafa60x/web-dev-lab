@@ -10,12 +10,14 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
+        title: 'Home Page',
         layout: 'AppLayoutDefault',
       },
     },
     {
       path: '/testing',
       meta: {
+        title: 'Testing Page',
         layout: 'AppLayoutDefault',
       },
       name: 'testing',
@@ -24,6 +26,7 @@ const router = createRouter({
     {
       path: '/accessibility',
       meta: {
+        title: 'Accessibility Page',
         layout: 'AppLayoutDefault',
       },
       name: 'accessibility',
@@ -32,6 +35,7 @@ const router = createRouter({
     {
       path: '/security',
       meta: {
+        title: 'Security Page',
         layout: 'AppLayoutDefault',
       },
       name: 'security',
@@ -40,6 +44,7 @@ const router = createRouter({
     {
       path: '/advanced-js',
       meta: {
+        title: 'Advanced JS Page',
         layout: 'AppLayoutDefault',
       },
       name: 'advanced-js',
@@ -48,6 +53,7 @@ const router = createRouter({
     {
       path: '/advanced-css',
       meta: {
+        title: 'Advanced CSS Page',
         layout: 'AppLayoutDefault',
       },
       name: 'advanced-css',
@@ -57,6 +63,12 @@ const router = createRouter({
 })
 
 // Before each route changing the loadLayoutMiddleware middleware is executing.
-router.beforeEach(loadLayoutMiddleware)
+router.beforeEach((to, from, next) => {
+  // Set the document title based on the route meta
+  document.title = `${to.meta.title} | Web Dev Lab`
+
+  // Execute the loadLayoutMiddleware middleware
+  loadLayoutMiddleware(to, from, next)
+})
 
 export default router
