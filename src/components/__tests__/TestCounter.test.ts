@@ -8,9 +8,15 @@ describe('Counter.vue', () => {
     expect(wrapper.find("[data-test='count']").text()).toBe('0')
   })
 
-  it('butona basınca sayıyı artırır', async () => {
+  it('increment butonuna basınca sayıyı artırır', async () => {
     const wrapper = mount(Counter)
-    await wrapper.find('button').trigger('click')
+    await wrapper.find('[data-test="increment"]').trigger('click')
     expect(wrapper.find("[data-test='count']").text()).toBe('1')
+  })
+
+  it('decrement butonuna basınca sayıyı azaltır', async () => {
+    const wrapper = mount(Counter)
+    await wrapper.find('[data-test="decrement"]').trigger('click')
+    expect(wrapper.find("[data-test='count']").text()).toBe('-1')
   })
 })

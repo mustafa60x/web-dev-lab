@@ -7,8 +7,19 @@
         testing.
       </p>
     </div>
+
+    <TestForm />
+
+    <hr class="my-10" />
+
+    <TestCounter />
   </div>
 </template>
+
+<script setup lang="ts">
+import TestForm from '@/components/Test/TestForm.vue'
+import TestCounter from '@/components/Test/TestCounter.vue'
+</script>
 
 <style scoped>
 .testing {
