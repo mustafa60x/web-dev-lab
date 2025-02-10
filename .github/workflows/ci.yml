@@ -53,7 +53,7 @@ jobs:
         run: k6 run --summary-export=load-test-summary.json load-test.js
 
       - name: Upload Load Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: load-test-results
           path: load-test-summary.json
