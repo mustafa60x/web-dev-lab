@@ -16,10 +16,10 @@ jobs:
           node-version: 18
 
       - name: Bağımlılıkları Yükle
-        run: npm install
+        run: pnpm install
 
       - name: Unit Testleri Çalıştır
-        run: npm run test
+        run: pnpm run test:unit
 
       - name: Playwright Testleri Çalıştır
-        run: npx playwright test
+        run: pnpm run test:e2e
