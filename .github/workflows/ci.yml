@@ -42,8 +42,8 @@ jobs:
 
       - name: Install K6
         run: |
-          sudo apt update
-          sudo apt install -y k6
+          curl -s https://packagecloud.io/install/repositories/loadimpact/k6/script.deb.sh | sudo bash
+          sudo apt-get install -y k6
 
       - name: Run Load Test with K6
         run: k6 run load-test.js
