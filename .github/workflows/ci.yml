@@ -32,3 +32,28 @@ jobs:
 
       - name: 🌍 E2E Testleri Çalıştır (Playwright)
         run: pnpm run test:e2e
+
+  load-test:
+    needs: test # Unit ve E2E testleri başarılı olursa yük testi başlar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install K6
+        run: |
+          sudo apt update
+          sudo apt install -y k6
+
+      - name: Run Load Test with K6
+        run: k6 run load-test.js
+
+      - name: Save Load Test Results
+        if: always()
+        run: k6 run --summary-export=load-test-summary.json load-test.js
+
+      - name: Upload Load Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: load-test-results
+          path: load-test-summary.json
