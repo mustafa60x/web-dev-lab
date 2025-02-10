@@ -22,7 +22,7 @@ jobs:
         run: pnpm install
 
       - name: 🧪 Unit Testleri Çalıştır (Vitest)
-        run: pnpm run test
+        run: pnpm run test:unit
 
       - name: 🏁 Playwright Tarayıcıları Kur
         run: npx playwright install --with-deps
