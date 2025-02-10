@@ -1,33 +1,38 @@
 <script setup lang="ts">
-import { RouterView, useRoute } from 'vue-router'
-import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 defineOptions({
-  name: 'App',
-})
-
-const route = useRoute()
-const layout = computed(() => {
-  // Default layout if no layout is specified
-  if (!route.meta?.layout) return 'div'
-  return route.meta.layoutComponent || 'div'
+  name: 'AppLayoutDefault',
 })
 </script>
 
 <template>
-  <component :is="layout">
-    <RouterView />
-  </component>
+  <div class="layout-default">
+    <header>
+      <nav>
+        <RouterLink to="/" class="logo-link">
+          <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="40" height="40" />
+          <span>Web Dev Lab</span>
+        </RouterLink>
+
+        <div class="nav-links">
+          <RouterLink to="/testing">Testing</RouterLink>
+          <RouterLink to="/accessibility">Accessibility</RouterLink>
+          <RouterLink to="/security">Security</RouterLink>
+          <RouterLink to="/advanced-js">Advanced JS</RouterLink>
+          <RouterLink to="/advanced-css">Advanced CSS</RouterLink>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot></slot>
+    </main>
+  </div>
 </template>
 
-<style>
-.app {
-  min-height: 100vh;
-}
-</style>
-
 <style scoped>
-.app {
+.layout-default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -113,3 +118,5 @@ main {
   }
 }
 </style>
+
+<style scoped></style>
