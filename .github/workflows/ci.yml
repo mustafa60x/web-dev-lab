@@ -21,6 +21,9 @@ jobs:
       - name: 📂 Bağımlılıkları Yükle
         run: pnpm install
 
+      - name: 🏗 Projeyi Build Et (Vite)
+        run: pnpm run build
+
       - name: 🧪 Unit Testleri Çalıştır (Vitest)
         run: pnpm run test:unit
 
