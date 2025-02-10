@@ -188,3 +188,28 @@
     padding-inline: var(--container-xl-padding);
   }
 }
+
+@layer base {
+  h1 {
+    font-size: var(--text-5xl);
+  }
+  h2 {
+    font-size: var(--text-4xl);
+  }
+  h3 {
+    font-size: var(--text-3xl);
+  }
+  h4 {
+    font-size: var(--text-2xl);
+  }
+  h5 {
+    font-size: var(--text-xl);
+  }
+  h6 {
+    font-size: var(--text-lg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
