@@ -2,18 +2,12 @@
 defineOptions({
   name: 'TestingView',
 })
+
+import IndexPage from '@/modules/Testing/IndexPage.vue'
 </script>
 
 <template>
-  <div class="testing">
-    <h1>Testing Page</h1>
-    <div class="content">
-      <p>
-        Welcome to the Testing section. Here you'll find resources and examples about software
-        testing.
-      </p>
-    </div>
-  </div>
+  <IndexPage />
 </template>
 
 <style scoped>
