@@ -7,8 +7,18 @@
         accessibility.
       </p>
     </div>
+
+    <hr class="mt-4" />
+
+    <div>
+      <AccessibilityExamples />
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import AccessibilityExamples from '@/modules/Accessibility/AccessibilityExamples.vue'
+</script>
 
 <style scoped>
 .accessibility {
