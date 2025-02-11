@@ -8,7 +8,14 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueDevTools(), tailwindcss()],
+  plugins: [
+    vue(),
+    process.env.NODE_ENV === 'development' &&
+      vueDevTools({
+        launchEditor: 'code',
+      }),
+    tailwindcss(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
