@@ -6,11 +6,13 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    process.env.NODE_ENV === 'development' &&
+    isDevelopment &&
       vueDevTools({
         launchEditor: 'code',
       }),
